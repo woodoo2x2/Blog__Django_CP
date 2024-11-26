@@ -52,6 +52,18 @@ class Category(MPTTModel):
         return self.title
 
 
+class PostManager(models.Manager):
+    """
+    Кастомный менеджер для модели постов
+    """
+
+    def get_queryset(self):
+        """
+        Список постов (SQL запрос с фильтрацией по статусу опубликованно)
+        """
+        return super().get_queryset().filter(status='published')
+
+
 class Post(models.Model):
     """
     Модель постов для нашего блога
@@ -82,6 +94,8 @@ class Post(models.Model):
                                 related_name='updater_posts', blank=True)
     fixed = models.BooleanField(verbose_name='Прикреплено', default=False)
     category = TreeForeignKey('Category', on_delete=models.SET_NULL, null=True, related_name='posts', verbose_name='Категория')
+    objects = models.Manager()
+    custom = PostManager()
 
     class Meta:
         db_table = 'blog_post'
