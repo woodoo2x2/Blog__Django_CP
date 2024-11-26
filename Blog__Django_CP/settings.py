@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'mptt',
     'debug_toolbar',
+    'accounts'
 ]
 
 MIDDLEWARE = [
