@@ -5,6 +5,8 @@ from django.urls import reverse
 
 from mptt.models import MPTTModel, TreeForeignKey
 
+from services.utils import unique_slugify
+
 
 class Category(MPTTModel):
     """
@@ -90,3 +92,10 @@ class Post(models.Model):
         Получаем прямую ссылку на статью для шаблонов
         """
         return reverse('post_detail', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        """
+        При сохранении генерируем слаг и проверяем на уникальность
+        """
+        self.slug = unique_slugify(self, self.title, self.slug)
+        super().save(*args, **kwargs)
