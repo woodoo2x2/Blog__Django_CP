@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u7z_f-$^n#_+#^$k2!qk-(5(quxj1s-2374*ve=v(ksax&a532'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # ADDING INTERNAL IPS FOR DJANGO TOOLBAR
 INTERNAL_IPS = [
@@ -47,8 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'accounts',
     'django_recaptcha',
-    'ckeditor_uploader',
-    'ckeditor'
+
 ]
 
 MIDDLEWARE = [

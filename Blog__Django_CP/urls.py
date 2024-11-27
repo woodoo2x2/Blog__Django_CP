@@ -20,6 +20,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+handler403 = 'blog.views.tr_handler403'
+handler404 = 'blog.views.tr_handler404'
+handler500 = 'blog.views.tr_handler500'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
