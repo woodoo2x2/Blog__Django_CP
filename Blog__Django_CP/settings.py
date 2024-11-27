@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'django_mptt_admin',
     'debug_toolbar',
     'accounts',
-    'django_recaptcha'
+    'django_recaptcha',
+    'ckeditor_uploader',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -141,6 +143,17 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Connect captcha
+# Connect captcha
 RECAPTCHA_PUBLIC_KEY = captcha_public_key
 RECAPTCHA_PRIVATE_KEY = captcha_private_key
+
+# Connect WYSIWYG(ckeditor)
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'awesome_ckeditor': {
+        'toolbar': 'full',
+        'height': 300,
+    },
+}
