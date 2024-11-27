@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'mptt',
+    'django_mptt_admin',
     'debug_toolbar',
     'accounts'
 ]
@@ -129,6 +130,7 @@ USE_TZ = True
 #Добавление staticROOT + mediaROOT
 STATIC_URL = '/static/'
 STATIC_ROOT = (BASE_DIR / 'static')
+STATICFILES_DIRS = [BASE_DIR / 'templates/js/']
 
 MEDIA_ROOT = (BASE_DIR / 'media')
 MEDIA_URL = '/media/'

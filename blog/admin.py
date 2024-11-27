@@ -1,5 +1,6 @@
 # Register your models here.
 from django.contrib import admin
+from django_mptt_admin.admin import DjangoMpttAdmin
 from mptt.admin import DraggableMPTTAdmin
 
 from .models import Post, Category, Comment
@@ -22,8 +23,10 @@ class PostAdmin(admin.ModelAdmin):
 
 
 
+
+
 @admin.register(Comment)
-class CommentAdminPage:
+class CommentAdminPage(DjangoMpttAdmin):
     """
     Админ-панель модели комментариев
     """
