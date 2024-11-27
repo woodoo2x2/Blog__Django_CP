@@ -1,6 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import ListView, DetailView, UpdateView
+
+from services.mixins import AuthorRequiredMixin
 from .models import Post, Category
 from django.views.generic import CreateView
 from .forms import PostCreateForm, PostUpdateForm
@@ -25,7 +27,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.save()
         return super().form_valid(form)
 
-class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class PostUpdateView(AuthorRequiredMixin, SuccessMessageMixin, UpdateView):
     """
     Представление: обновления материала на сайте
     """
@@ -42,7 +44,7 @@ class PostUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         return context
 
     def form_valid(self, form):
-        form.instance.updater = self.request.user
+        # form.instance.updater = self.request.user
         form.save()
         return super().form_valid(form)
 
