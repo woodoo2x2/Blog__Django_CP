@@ -8,4 +8,4 @@
 - Working with mixins and create custom one
 - Using common uses ViewBasedClasses
 - Using mptt, create Comment Tree (Using JavaScript) and Category Tree
-- 
+- Using and create custom middleware
