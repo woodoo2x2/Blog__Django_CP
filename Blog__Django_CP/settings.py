@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+from .conf import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'mptt',
     'django_mptt_admin',
     'debug_toolbar',
-    'accounts'
+    'accounts',
+    'django_recaptcha'
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Connect captcha
+RECAPTCHA_PUBLIC_KEY = captcha_public_key
+RECAPTCHA_PRIVATE_KEY = captcha_private_key
