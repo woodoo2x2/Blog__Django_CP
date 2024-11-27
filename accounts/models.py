@@ -4,6 +4,7 @@ from django.core.validators import FileExtensionValidator
 from django.urls import reverse
 from services.utils import unique_slugify
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     slug = models.SlugField(verbose_name='URL', max_length=255, blank=True, unique=True)
