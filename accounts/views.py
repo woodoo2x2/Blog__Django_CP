@@ -6,6 +6,7 @@ from .models import Profile
 from .forms import UserUpdateForm, ProfileUpdateForm
 
 
+
 class ProfileDetailView(DetailView):
     """
     Представление для просмотра профиля
