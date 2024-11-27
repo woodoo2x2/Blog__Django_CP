@@ -2,7 +2,7 @@
 from django.contrib import admin
 from mptt.admin import DraggableMPTTAdmin
 
-from .models import Post, Category
+from .models import Post, Category, Comment
 
 
 @admin.register(Category)
@@ -20,7 +20,7 @@ class PostAdmin(admin.ModelAdmin):
     """
     prepopulated_fields = {'slug': ('title',)}
 
-from .models import Comment
+
 
 @admin.register(Comment)
 class CommentAdminPage:
