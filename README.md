@@ -20,11 +20,12 @@ A brief description of the project and its purpose.
 
 ## Technologies
 
-- Python 3.x
+- Python 3.10
 - Django 5
 - PostgreSQL (need to realise)
 - Docker (need to realise)
-
+- Redis (need to realise)
+- DRF  (need to realise)
 
 ## Installation
 
