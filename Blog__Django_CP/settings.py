@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'accounts',
     'django_recaptcha',
-
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
