@@ -6,7 +6,7 @@
 
 # Project Title
 
-A brief description of the project and its purpose.
+It's my first combat Django Application.
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ A brief description of the project and its purpose.
 
 1. Clone the repository
     ```sh
-    git clone https://github.com/your-username/project-name.git
+    git clone https://github.com/woodoo2x2/Blog__Django_CP.git
     cd project-name
     ```
 
