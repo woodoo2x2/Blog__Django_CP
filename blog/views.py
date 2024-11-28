@@ -3,8 +3,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView, UpdateView
-
-
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import generics
 
@@ -175,11 +174,13 @@ def tr_handler403(request, exception):
         'error_message': 'Доступ к этой странице ограничен',
     })
 
-class PostList(generics.ListCreateAPIView):
+class PostListAPI(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['author']
 
 
-class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+class PostDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer

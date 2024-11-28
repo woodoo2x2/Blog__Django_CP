@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'django_recaptcha',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -147,13 +148,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 RECAPTCHA_PUBLIC_KEY = captcha_public_key
 RECAPTCHA_PRIVATE_KEY = captcha_private_key
 
-# Connect WYSIWYG(ckeditor)
-
-CKEDITOR_UPLOAD_PATH = "uploads/"
-
-CKEDITOR_CONFIGS = {
-    'awesome_ckeditor': {
-        'toolbar': 'full',
-        'height': 300,
-    },
+# REST framework + filter
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']  # new
 }
