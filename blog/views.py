@@ -2,19 +2,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import JsonResponse
 from django.shortcuts import redirect
+from django.shortcuts import render
+from django.views.generic import CreateView
 from django.views.generic import ListView, DetailView, UpdateView
 from django_filters.rest_framework import DjangoFilterBackend
-
 from rest_framework import generics
 
-
+from services.mixins import AuthorRequiredMixin
+from .forms import PostCreateForm, PostUpdateForm, CommentCreateForm
+from .models import Post, Category
 from .serializers import PostSerializer
 
-from services.mixins import AuthorRequiredMixin
-from .models import Post, Category
-from django.views.generic import CreateView
-from .forms import PostCreateForm, PostUpdateForm, CommentCreateForm
-from django.shortcuts import render
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     """
@@ -143,8 +141,6 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
         return JsonResponse({'error': 'Необходимо авторизоваться для добавления комментариев'}, status=400)
 
 
-
-
 def tr_handler404(request, exception):
     """
     Обработка ошибки 404
@@ -173,6 +169,7 @@ def tr_handler403(request, exception):
         'title': 'Ошибка доступа: 403',
         'error_message': 'Доступ к этой странице ограничен',
     })
+
 
 class PostListAPI(generics.ListCreateAPIView):
     queryset = Post.objects.all()
