@@ -1,4 +1,5 @@
 from django.urls import path
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView
 
 from blog import views
 
@@ -13,4 +14,6 @@ urlpatterns = [
     path('category/<slug:slug>/', views.PostFromCategory.as_view(), name="post_by_category"),
     path("api/<int:pk>/", views.PostDetailAPI.as_view(), name="post_detail_api"),
     path("api/", views.PostListAPI.as_view(), name="post_list_api"),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/schema/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]

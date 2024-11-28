@@ -25,7 +25,7 @@ It's my first combat Django Application.
 - PostgreSQL (need to realise)
 - Docker (need to realise)
 - Redis (need to realise)
-- DRF  (need to realise)
+- DRF (API for posts and schema)
 
 ## Installation
 

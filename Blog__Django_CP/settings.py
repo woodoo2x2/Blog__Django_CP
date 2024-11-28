@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django_recaptcha',
     'rest_framework',
     'django_filters',
+    'drf_spectacular'
 ]
 
 MIDDLEWARE = [
@@ -160,4 +161,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+#For documating API
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+
 }
