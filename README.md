@@ -128,3 +128,4 @@ A brief description of the project structure and main directories.
 - Using common uses ViewBasedClasses
 - Using mptt, create Comment Tree (Using JavaScript) and Category Tree
 - Using and create custom middleware
+- Adjust DRF for posts
