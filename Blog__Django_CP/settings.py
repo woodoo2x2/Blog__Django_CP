@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 from pathlib import Path
-from .conf import *
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,8 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-u7z_f-$^n#_+#^$k2!qk-(5(quxj1s-2374*ve=v(ksax&a532'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -88,7 +89,6 @@ WSGI_APPLICATION = 'Blog__Django_CP.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -146,8 +146,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Connect captcha
-RECAPTCHA_PUBLIC_KEY = captcha_public_key
-RECAPTCHA_PRIVATE_KEY = captcha_private_key
+RECAPTCHA_PUBLIC_KEY = str(os.getenv('RECAPTCHA_PUBLIC_KEY'))
+RECAPTCHA_PRIVATE_KEY = str(os.getenv('RECAPTCHA_PRIVATE_KEY'))
 
 # REST framework + filter
 REST_FRAMEWORK = {
