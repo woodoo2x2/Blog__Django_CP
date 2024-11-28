@@ -32,7 +32,7 @@ It's my first combat Django Application.
 1. Clone the repository
     ```sh
     git clone https://github.com/woodoo2x2/Blog__Django_CP.git
-    cd project-name
+    cd Blog__Django_CP
     ```
 
 2. Create and activate a virtual environment
